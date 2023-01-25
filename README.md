@@ -38,6 +38,24 @@ docker run --rm -it --name telegram \
        xorilog/telegram
 ```
 
+my command to run
+
+```shell
+docker run --rm -it --name telegram \
+       --hostname=$(hostname) \
+       -e DISPLAY=unix$DISPLAY \
+       -e PULSE_SERVER=unix:$XDG_RUNTIME_DIR/pulse/native \
+       -v /tmp/.X11-unix:/tmp/.X11-unix \
+       -v "/home/$(whoami)/.Xauthority:/home/user/.Xauthority" \
+       -v $XDG_RUNTIME_DIR/pulse:$XDG_RUNTIME_DIR/pulse \
+       -v /etc/localtime:/etc/localtime:ro \
+       -v ~/Containers/dtelegram/home/.TelegramDesktop:/home/user/.local/share/TelegramDesktop/ \
+       xorilog/telegram
+```
+
+
+
+
 ### Mac Os
 
 > Requires xquartz (`brew cask install xquartz` then reboot your computer & check in preferences>Security : Authenticate & Allow connections checkboxes)
