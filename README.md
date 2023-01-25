@@ -16,6 +16,8 @@ To Local build to validate
 
 ```shell
 docker build -t "local-build/telegram:${version}" .
+
+docker build -t "joel9vvs/telegramd:${version}" .
 ```
 
 
