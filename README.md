@@ -21,7 +21,7 @@ To MY Local build to validate
 
 
 ```shell
-docker build -t "local-build/telegram:latest"
+docker build --build-arg USER=$USER  --build-arg http_proxy="" --build-arg https_proxy=""  -t local-build/telegram:latest .
 ```
 
 
