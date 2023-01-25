@@ -1,5 +1,8 @@
 # Gathering of binary
-FROM debian:stretch-slim as downloader
+##FROM debian:stretch-slim as downloader
+#FROM Alpine:latest as downloader
+FROM debian:buster-slim
+
 
 ARG http_proxy=""
 ARG https_proxy=""
