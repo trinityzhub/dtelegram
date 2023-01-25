@@ -11,6 +11,18 @@ To spawn a new instance of Telegram:
 
 ### Linux
 
+
+To Local build to validate
+
+```shell
+docker build -t "local-build/telegram:${version}" .
+```
+
+
+
+
+To run
+
 ```shell
 docker run --rm -it --name telegram \
        --hostname=$(hostname) \
