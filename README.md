@@ -61,7 +61,7 @@ docker run --rm -it --name telegram \
        -v $XDG_RUNTIME_DIR/pulse:$XDG_RUNTIME_DIR/pulse \
        -v /etc/localtime:/etc/localtime:ro \
        -v ~/Containers/dtelegram/home/.TelegramDesktop:/home/user/.local/share/TelegramDesktop/ \
-       xorilog/telegram
+       local-build/telegram
 ```
 
 
