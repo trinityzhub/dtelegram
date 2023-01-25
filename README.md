@@ -1,3 +1,10 @@
+
+export DOCKER_HOST=unix:///var/run/docker.sock
+
+
+
+
+
 # docker-telegram
 
 A Docker image that start a fresh telegram client.
