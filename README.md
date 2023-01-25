@@ -21,7 +21,7 @@ To MY Local build to validate
 
 
 ```shell
-docker build -t "joel9vvs/telegramd:${version}" .
+docker build -t "joel9vvs/telegramd:latest" .
 ```
 
 
