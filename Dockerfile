@@ -1,7 +1,7 @@
 # Gathering of binary
 ##FROM debian:stretch-slim as downloader
 #FROM Alpine:latest as downloader
-FROM debian:buster-slim as downloader
+FROM debian:buster as downloader
 
 
 ARG telegram_version=""
