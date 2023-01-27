@@ -79,10 +79,41 @@ docker run --rm -it --name telegram \
        -v ${HOME}/.config/.TelegramDesktop:/home/user/.local/share/TelegramDesktop/ \
        xorilog/telegram:4.5.3
        
+
+export HOME=/home/ubbe
+export ME=ubbe
+docker run --rm -it --name telegram \
+       --hostname=$(hostname) -u $(id -u):$(id -g) \
+       -e DISPLAY=unix$DISPLAY \
+       -e PULSE_SERVER=unix:$XDG_RUNTIME_DIR/pulse/native \
+       -v /tmp/.X11-unix:/tmp/.X11-unix \
+       -v "/home/$ME/.Xauthority:/home/user/.Xauthority" \
+       -v $XDG_RUNTIME_DIR/pulse:$XDG_RUNTIME_DIR/pulse \
+       -v /etc/localtime:/etc/localtime:ro \
+       -v ${HOME}/.config/.TelegramDesktop:/home/user/.local/share/TelegramDesktop/ \
+       xorilog/telegram:4.5.3       
+       
 ```
 
 
 
+```shell
+docker build -t "local-build/telegram:4.5.3.1"
+
+export HOME=/home/ubbe
+export ME=ubbe
+docker run --rm -it --name telegram \
+       --hostname=$(hostname) -u $(id -u):$(id -g) \
+       -e DISPLAY=unix$DISPLAY \
+       -e PULSE_SERVER=unix:$XDG_RUNTIME_DIR/pulse/native \
+       -v /tmp/.X11-unix:/tmp/.X11-unix \
+       -v "/home/$ME/.Xauthority:/home/user/.Xauthority" \
+       -v $XDG_RUNTIME_DIR/pulse:$XDG_RUNTIME_DIR/pulse \
+       -v /etc/localtime:/etc/localtime:ro \
+       -v ${HOME}/.config/.TelegramDesktop:/home/user/.local/share/TelegramDesktop/ \
+       xorilog/telegram:local-build/telegram:4.5.3.1     
+       
+```
 
 ### Mac Os
 
