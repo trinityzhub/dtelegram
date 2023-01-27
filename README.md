@@ -98,7 +98,7 @@ docker run --rm -it --name telegram \
 
 
 ```shell
-docker build -t "local-build/telegram:4.5.3.1"
+docker build -t "local-build/telegram:4.5.3.1" .
 
 export HOME=/home/ubbe
 export ME=ubbe
