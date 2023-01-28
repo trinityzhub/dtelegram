@@ -57,7 +57,7 @@ RUN env \
 
 
 # Base docker image
-FROM debian:buster-slim
+FROM debian:buster
 LABEL maintainer "Christophe Boucharlat <christophe.boucharlat@gmail.com>"
 LABEL org.opencontainers.image.source https://github.com/xorilog/docker-telegram
 
