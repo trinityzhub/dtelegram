@@ -96,11 +96,11 @@ if [ "$DOMAIN_CODE" = "" ]; then
    DOMAIN_CODE="h3"
 fi
 
-
+CONTAINER_NAME="telegram-"$DOMAIN_CODE
 mkdir -p ${HOME}/.$DOMAIN_CODE/.config/.TelegramDesktop
 
 
-docker run --name telegram5 \
+docker run --name $CONTAINER_NAME \
        --hostname=$(hostname) -u $(id -u):$(id -g) \
        -e DISPLAY=unix$DISPLAY \
        -e PULSE_SERVER=unix:$XDG_RUNTIME_DIR/pulse/native \
