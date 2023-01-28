@@ -98,7 +98,7 @@ docker run --rm -it --name telegram \
 
 
 ```shell
-docker build -t "local-build/telegram:4.5.3.1" .
+docker build -t "local-build/telegram:4.5.3.buster3" .
 
 export HOME=/home/ubbe
 export ME=ubbe
@@ -111,7 +111,7 @@ docker run --rm -it --name telegram \
        -v $XDG_RUNTIME_DIR/pulse:$XDG_RUNTIME_DIR/pulse \
        -v /etc/localtime:/etc/localtime:ro \
        -v ${HOME}/.config/.TelegramDesktop:/home/user/.local/share/TelegramDesktop/ \
-       local-build/telegram:4.5.3.1     
+       local-build/telegram:4.5.3.buster3     
        
 ```
 
