@@ -47,6 +47,30 @@ docker run --name telegram \
 ```
 
 COMMENT :
-Working only one time. Container missing.showing gui error
+Container created successfully
 
+
+###  My Local Build for Buster Slim   SubVersion as 5:
+Previous  Commit  (`git log --oneline -1`) : removed unknown parameter : Try #1  01baf5bfdbde99c65c691b472e673f8e3eabca78
+
+```shell
+docker build -t "local/buster/telegram:4.5.3.5" -f /home/ubbe/CodeBase/DockerGit/DailyLifeApps/telegram/dtelegram-t9/variant/debian-buster/Dockerfile
+
+export HOME=/home/ubbe
+export ME=ubbe
+docker run --name telegram \
+       --hostname=$(hostname) -u $(id -u):$(id -g) \
+       -e DISPLAY=unix$DISPLAY \
+       -e PULSE_SERVER=unix:$XDG_RUNTIME_DIR/pulse/native \
+       -v /tmp/.X11-unix:/tmp/.X11-unix \
+       -v "/home/$ME/.Xauthority:/home/user/.Xauthority" \
+       -v $XDG_RUNTIME_DIR/pulse:$XDG_RUNTIME_DIR/pulse \
+       -v /etc/localtime:/etc/localtime:ro \
+       -v ${HOME}/.config/.TelegramDesktop:/home/user/.local/share/TelegramDesktop/ \
+       -t local/buster/telegram:4.5.3.5     
+       
+```
+
+COMMENT :
+Container created successfully
 
