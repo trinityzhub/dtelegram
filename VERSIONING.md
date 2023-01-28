@@ -33,7 +33,7 @@ docker build -t "local/busterslim/telegram:4.5.3.4" .
 
 export HOME=/home/ubbe
 export ME=ubbe
-docker run --rm -it --name telegram \
+docker run --name telegram \
        --hostname=$(hostname) -u $(id -u):$(id -g) \
        -e DISPLAY=unix$DISPLAY \
        -e PULSE_SERVER=unix:$XDG_RUNTIME_DIR/pulse/native \
@@ -42,7 +42,7 @@ docker run --rm -it --name telegram \
        -v $XDG_RUNTIME_DIR/pulse:$XDG_RUNTIME_DIR/pulse \
        -v /etc/localtime:/etc/localtime:ro \
        -v ${HOME}/.config/.TelegramDesktop:/home/user/.local/share/TelegramDesktop/ \
-       local/busterslim/telegram:4.5.3.4     
+       --rm -it local/busterslim/telegram:4.5.3.4     
        
 ```
 
