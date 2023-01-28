@@ -54,7 +54,8 @@ Container created successfully
 Previous  Commit  (`git log --oneline -1`) : buster 00c2b0435dbd517e76ac85fa90b1441e605e82ee
 
 ```shell
-docker build  -f /home/ubbe/CodeBase/DockerGit/DailyLifeApps/telegram/dtelegram-t9/variant/debian-buster/Dockerfile -t "local/buster/telegram:4.5.3.5" .
+docker build  -f /home/ubbe/CodeBase/DockerGit/DailyLifeApps/telegram/dtelegram-t9/variant/debian-buster/Dockerfile \
+              -t "local/buster/telegram:4.5.3.5" .
 
 export HOME=/home/ubbe
 export ME=ubbe
