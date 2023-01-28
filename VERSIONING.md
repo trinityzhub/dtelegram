@@ -42,7 +42,7 @@ docker run --name telegram \
        -v $XDG_RUNTIME_DIR/pulse:$XDG_RUNTIME_DIR/pulse \
        -v /etc/localtime:/etc/localtime:ro \
        -v ${HOME}/.config/.TelegramDesktop:/home/user/.local/share/TelegramDesktop/ \
-       --rm -it local/busterslim/telegram:4.5.3.4     
+       -t local/busterslim/telegram:4.5.3.4     
        
 ```
 
