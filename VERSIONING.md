@@ -58,7 +58,7 @@ docker build  -f /home/ubbe/CodeBase/DockerGit/DailyLifeApps/telegram/dtelegram-
 
 export HOME=/home/ubbe
 export ME=ubbe
-docker run --name telegram \
+docker run --name telegram5 \
        --hostname=$(hostname) -u $(id -u):$(id -g) \
        -e DISPLAY=unix$DISPLAY \
        -e PULSE_SERVER=unix:$XDG_RUNTIME_DIR/pulse/native \
