@@ -51,10 +51,10 @@ Container created successfully
 
 
 ###  My Local Build for Buster Slim   SubVersion as 5:
-Previous  Commit  (`git log --oneline -1`) : removed unknown parameter : Try #1  01baf5bfdbde99c65c691b472e673f8e3eabca78
+Previous  Commit  (`git log --oneline -1`) : buster 00c2b0435dbd517e76ac85fa90b1441e605e82ee
 
 ```shell
-docker build -t "local/buster/telegram:4.5.3.5" -f /home/ubbe/CodeBase/DockerGit/DailyLifeApps/telegram/dtelegram-t9/variant/debian-buster/Dockerfile
+docker build  -f /home/ubbe/CodeBase/DockerGit/DailyLifeApps/telegram/dtelegram-t9/variant/debian-buster/Dockerfile -t "local/buster/telegram:4.5.3.5" .
 
 export HOME=/home/ubbe
 export ME=ubbe
