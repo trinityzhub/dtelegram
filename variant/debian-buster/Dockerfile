@@ -1,7 +1,7 @@
 # Gathering of binary
 ##FROM debian:buster-slim as downloader
 #FROM Alpine:latest as downloader
-FROM debian:stretch-slim as downloader
+FROM debian:buster-slim as downloader
 
 
 ARG telegram_version=""
@@ -57,7 +57,7 @@ RUN env \
 
 
 # Base docker image
-FROM debian:stretch
+FROM debian:buster
 LABEL maintainer "Christophe Boucharlat <christophe.boucharlat@gmail.com>"
 LABEL org.opencontainers.image.source https://github.com/xorilog/docker-telegram
 
