@@ -16,7 +16,7 @@
 ##docker images --format "{{.Repository}}:{{.Tag}}" | grep "telegram"
 
 ## 
-choicesToShow=($( { docker images --format "{{.Repository}}:{{.Tag}}" | grep "telegram"  ; echo "CREATE IMAGE" ;  } ))
+choicesToShow=($( { docker images --format "{{.Repository}}:{{.Tag}}" | grep "telegram"  ; echo "CREATE_IMAGE" ;  } ))
 source ./lib/select.sh 
 DOCKER_IMAGE_TAG=$mychoicefromsel
 unset mychoicefromsel
