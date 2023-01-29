@@ -96,7 +96,8 @@ if [ "$DOMAIN_CODE" = "" ]; then
    DOMAIN_CODE="h3"
 fi
 
-CONTAINER_NAME="telegram-"$DOMAIN_CODE
+SHORT_NAME=$(echo 'telegram-'$DOMAIN_CODE | sed -e 's/-/ /g' -e 's/\b\(.\)/\u\1/g' |tr -d ' ')
+CONTAINER_NAME=$(echo 'telegram-'$DOMAIN_CODE | sed -e 's/-/ /g' -e 's/\b\(.\)/\u\1/g' |tr -d ' ')
 mkdir -p ${HOME}/.$DOMAIN_CODE/.config/.TelegramDesktop
 
 
@@ -112,3 +113,58 @@ docker run --name $CONTAINER_NAME \
        -t $DOCKER_IMAGE_TAG
 
 
+echo -e "\n"
+read -p 'Would you like to add a shortcut to Gnome Launcher? (Y/n): ' GL
+
+if [ "$GL" = "Y" ] || [ "$GL" = "y" ] || [ "$GL" = "" ]; then
+   echo -e "\nInstalling Gnome launcher shortcut...\n"
+  
+   if [ ! -d "$HOME/.local/share/icons/hicolor/512x512/apps" ]; then
+      mkdir -p $HOME/.local/share/icons/hicolor/512x512/apps
+   fi
+
+   if [ ! -d "$HOME/.local/share/applications" ]; then
+      mkdir -p $HOME/.local/share/applications
+   fi
+   
+   if [ ! -d "$HOME/.local/bin" ]; then
+      mkdir -p $HOME/.local/bin
+   fi
+
+   cp telegram_logo.png $HOME/.local/share/icons/hicolor/512x512/apps/
+   sed 's|HOME|'$HOME'|g; s|SHORTNAME|'$SHORT_NAME'|g; s|APPNAME|'$CONTAINER_NAME'|g'  Telegram.desktop.skel > $CONTAINER_NAME.desktop
+   mv $CONTAINER_NAME.desktop $HOME/.local/share/applications/
+
+
+   sed 's|APPNAME|'$CONTAINER_NAME'|g'   dTelegram.skel > $CONTAINER_NAME
+   mv $CONTAINER_NAME $HOME/.local/bin/
+
+   
+
+
+
+   echo -e "\n"
+   read -p 'Would you like to change PERMISSION (do you have sudo access)? (Y/n): ' PERMISSION_INPUT
+
+   if [ "$PERMISSION_INPUT" = "Y" ] || [ "$PERMISSION_INPUT" = "y" ] ; then
+
+      sudo chown $USER:docker $HOME/.local/share/applications/$CONTAINER_NAME.desktop
+      sudo chmod +x   $HOME/.local/share/applications/$CONTAINER_NAME.desktop
+
+      sudo chown $USER:docker $HOME/.local/bin/$CONTAINER_NAME
+      sudo chmod +x   $HOME/.local/bin/$CONTAINER_NAME
+   else
+      chmod +x   $HOME/.local/share/applications/$CONTAINER_NAME.desktop
+      chmod +x   $HOME/.local/bin/$CONTAINER_NAME
+   fi
+
+
+
+   
+elif [ "$GL" = "N" ] || [ "$GL" = "n" ]; then 
+   echo -e "\nSkipping installation of Gnome launcher shortcut...\n"
+else
+   echo -e "\nUnrecognized input, skipping installation of Gnome launcher shortcut...\n"
+fi
+
+echo -e "\nDone... exiting...\n"

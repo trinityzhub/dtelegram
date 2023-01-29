@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=0.0.2
+Name=SHORTNAME
+Comment=APPNAME Dockerized
+GenericName=APPNAME
+Exec=HOME/.local/bin/APPNAME
+Path=HOME/.local/bin
+Terminal=false
+Type=Application
+Icon=HOME/.local/share/icons/hicolor/512x512/apps/telegram-logo.png
+StartupNotify=true
+Categories=Utility;Application;
