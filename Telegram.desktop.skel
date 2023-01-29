@@ -7,6 +7,6 @@ Exec=HOME/.local/bin/APPNAME
 Path=HOME/.local/bin
 Terminal=false
 Type=Application
-Icon=HOME/.local/share/icons/hicolor/512x512/apps/telegram-logo.png
+Icon=HOME/.local/share/icons/hicolor/512x512/apps/logo-400.png
 StartupNotify=true
 Categories=Utility;Application;

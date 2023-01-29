@@ -131,7 +131,7 @@ if [ "$GL" = "Y" ] || [ "$GL" = "y" ] || [ "$GL" = "" ]; then
       mkdir -p $HOME/.local/bin
    fi
 
-   cp telegram_logo.png $HOME/.local/share/icons/hicolor/512x512/apps/
+   cp logo-400.png $HOME/.local/share/icons/hicolor/512x512/apps/
    sed 's|HOME|'$HOME'|g; s|SHORTNAME|'$SHORT_NAME'|g; s|APPNAME|'$CONTAINER_NAME'|g'  Telegram.desktop.skel > $CONTAINER_NAME.desktop
    mv $CONTAINER_NAME.desktop $HOME/.local/share/applications/
 
