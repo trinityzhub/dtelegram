@@ -21,7 +21,7 @@ source ./lib/select.sh
 DOCKER_IMAGE_TAG=$mychoicefromsel
 unset mychoicefromsel
 
-if [ "$DOCKER_IMAGE_TAG" = "CREATE IMAGE" ]; then
+if [ "$DOCKER_IMAGE_TAG" == "CREATE IMAGE" ]; then
 
     echo -e "\n"
     read -p 'Enter  DEV_ID (eg: trinity0091 ): ' DEV_ID
