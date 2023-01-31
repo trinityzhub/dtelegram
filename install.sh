@@ -43,7 +43,7 @@ echo "EXEC_HOME   =[${EXEC_HOME}]"
 
 ## 
 choicesToShow=($( { docker images --format "{{.Repository}}:{{.Tag}}" | grep "telegram"  ; echo "CREATE_IMAGE" ;  } ))
-source ./lib/general/select.sh 
+source $EXEC_HOME/lib/general/select.sh 
 DOCKER_IMAGE_TAG=$mychoicefromsel
 unset mychoicefromsel
 
@@ -89,7 +89,7 @@ if [ $choice_intermediate_req == 1 ] || [ $choice_intermediate_req == 2  ] ; the
 
     echo "PLEASE SELECT Dockerfile:"
     choicesToShow=($( ls | grep "Dockerfile" ))
-    source ./lib/general/select.sh 
+    source $EXEC_HOME/lib/general/select.sh 
     DOCKER_FILE=$mychoicefromsel
     unset mychoicefromsel
 
