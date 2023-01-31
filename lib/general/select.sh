@@ -2,7 +2,7 @@
 
 ######### METHOD : using source <implementing select#1<OPS<DOCKER
 
-## ./select.sh  "${choices[@]}"
+## ./../general/select.sh  "${choices[@]}"
 
 ## we can get it  as argument 
 # read -a choicesToShow <<< "${BASH_ARGV[@]}"
@@ -11,6 +11,7 @@
 # choices=$1
 ##echo "Choices: ${choicesToShow[@]}"
 ##echo -e "\n"
+
 
 ##choicesToShow=( 'one' 'two' 'three' 'four' 'five' ) # sample choices
 select dummy in "${choicesToShow[@]}"; do  # present numbered choices to user
