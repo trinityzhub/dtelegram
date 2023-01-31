@@ -13,6 +13,32 @@
 
 
 
+
+## identifying the path  (sh not supported)
+pushd . > /dev/null
+SCRIPT_PATH="${BASH_SOURCE[0]}";
+while([ -h "${SCRIPT_PATH}" ]); do
+    cd "`dirname "${SCRIPT_PATH}"`"
+    SCRIPT_PATH="$(readlink "`basename "${SCRIPT_PATH}"`")";
+    echo "test=[${SCRIPT_PATH}]"
+done
+cd "`dirname "${SCRIPT_PATH}"`" > /dev/null
+
+SCRIPT_PATH="`pwd`";
+popd  > /dev/null
+echo "srcipt=[${SCRIPT_PATH}]"
+TERMINAL_PATH="`pwd`";
+echo "pwd   =[${TERMINAL_PATH}]"
+
+
+## removing lib dir 
+EXEC_HOME=$(sed -e "s#/lib/general##" <<<"$SCRIPT_PATH")
+echo "EXEC_HOME   =[${EXEC_HOME}]"
+
+
+
+
+
 ##docker images --format "{{.Repository}}:{{.Tag}}" | grep "telegram"
 
 ## 
