@@ -101,6 +101,9 @@ if [ $choice_intermediate_req == 1 ]
 then
     echo -e "\nBuilding container image without intermediate (unwanted) ..."
     docker build  \
+        --build-arg USER=$USER  \
+        --build-arg http_proxy="" \
+        --build-arg https_proxy="" \    
         -f $DOCKER_FILE \
         --rm -t $DOCKER_IMAGE_TAG .
 
@@ -108,6 +111,9 @@ elif [ $choice_intermediate_req == 2 ]
 then
     echo -e "\nBuilding container image with intermediate (fast) ..."
     docker build  \
+        --build-arg USER=$USER  \
+        --build-arg http_proxy="" \
+        --build-arg https_proxy="" \
         -f $DOCKER_FILE \
         -t $DOCKER_IMAGE_TAG .
 else
