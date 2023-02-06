@@ -182,6 +182,12 @@ chmod 0700 "${XDG_RUNTIME_DIR}"
 * You have to log out Telegram to close the docker container.
 * You have to create your storage directory before start using `mkdir <Your_storage_dir>` as the one created by docker is owned by root user.
 
+
+
+
+- ```apt-get install fonts-mlym```` created so many issues
+
+
 ## FAQ
 
 ### Docker image registry
