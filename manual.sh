@@ -28,7 +28,7 @@ CONTAINER_NAME="TelegramT91"
 DOCKER_IMAGE_TAG="local/busterslim/dtelegram:4.5.3.5"
 ##"/home/ubbe/.t91/.config/.TelegramDesktop"
 
-docker run --rm -it --name $CONTAINER_NAME \
+docker run -it --name $CONTAINER_NAME \
        --hostname=$(hostname) \
        -u $(id -u):$(id -g) \
        -e DISPLAY=unix$DISPLAY \
