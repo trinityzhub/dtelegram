@@ -134,8 +134,11 @@ mkdir -p ${HOME}/.$DOMAIN_CODE/.config/.TelegramDesktop
 echo  "CONTAINER_NAME : $CONTAINER_NAME"
 echo  "created dir : ${HOME}/.$DOMAIN_CODE/.config/.TelegramDesktop "
 
+
+ ## -u $(id -u):$(id -g) \
+ 
 docker run --rm -it --name $CONTAINER_NAME \
-       --hostname=$(hostname) \ ## -u $(id -u):$(id -g) \
+       --hostname=$(hostname) \
        -e DISPLAY=unix$DISPLAY \
        -e PULSE_SERVER=unix:$XDG_RUNTIME_DIR/pulse/native \
        -v /tmp/.X11-unix:/tmp/.X11-unix \
