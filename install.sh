@@ -134,17 +134,19 @@ mkdir -p ${HOME}/.$DOMAIN_CODE/.config/.TelegramDesktop
 echo  "CONTAINER_NAME : $CONTAINER_NAME"
 echo  "created dir : ${HOME}/.$DOMAIN_CODE/.config/.TelegramDesktop "
 
-docker run --name $CONTAINER_NAME \
-       --hostname=$(hostname) -u $(id -u):$(id -g) \
+docker run --rm -it --name $CONTAINER_NAME \
+       --hostname=$(hostname) \ ## -u $(id -u):$(id -g) \
        -e DISPLAY=unix$DISPLAY \
        -e PULSE_SERVER=unix:$XDG_RUNTIME_DIR/pulse/native \
        -v /tmp/.X11-unix:/tmp/.X11-unix \
        -v "/home/$(whoami)/.Xauthority:/home/user/.Xauthority" \
        -v $XDG_RUNTIME_DIR/pulse:$XDG_RUNTIME_DIR/pulse \
        -v /etc/localtime:/etc/localtime:ro \
-       -v ${HOME}/.config/.TelegramDesktop:/home/user/.local/share/TelegramDesktop/ \
-       -t $DOCKER_IMAGE_TAG
-
+       -v "${HOME}/.$DOMAIN_CODE/.config/.TelegramDesktop":"/home/user/.local/share/TelegramDesktop/" \
+        $DOCKER_IMAGE_TAG
+        
+        
+echo "Created container...."
 
 echo -e "\n"
 read -p 'Would you like to add a shortcut to Gnome Launcher? (Y/n): ' GL
