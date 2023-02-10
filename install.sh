@@ -131,7 +131,8 @@ fi
 SHORT_NAME=$(echo 'telegram-'$DOMAIN_CODE | sed -e 's/-/ /g' -e 's/\b\(.\)/\u\1/g' |tr -d ' ')
 CONTAINER_NAME=$(echo 'telegram-'$DOMAIN_CODE | sed -e 's/-/ /g' -e 's/\b\(.\)/\u\1/g' |tr -d ' ')
 mkdir -p ${HOME}/.$DOMAIN_CODE/.config/.TelegramDesktop
-
+echo  "CONTAINER_NAME : $CONTAINER_NAME"
+echo  "created dir : ${HOME}/.$DOMAIN_CODE/.config/.TelegramDesktop "
 
 docker run --name $CONTAINER_NAME \
        --hostname=$(hostname) -u $(id -u):$(id -g) \
