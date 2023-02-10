@@ -137,7 +137,7 @@ echo  "created dir : ${HOME}/.$DOMAIN_CODE/.config/.TelegramDesktop "
 
  ## -u $(id -u):$(id -g) \
  
-docker run --rm -it --name $CONTAINER_NAME \
+docker run  -it --name $CONTAINER_NAME \
        --hostname=$(hostname) \
        -e DISPLAY=unix$DISPLAY \
        -e PULSE_SERVER=unix:$XDG_RUNTIME_DIR/pulse/native \
